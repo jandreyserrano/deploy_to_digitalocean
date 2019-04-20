@@ -1,38 +1,34 @@
 services:
-  - docker
-
+- docker
 notifications:
   email: false
 addons:
   sshknownhosts:
-  - 123.45.56.78 # your droplet IP goes here
+  - 104.248.3.160
 branches:
   only:
   - master
 env:
   global:
-  - REMOTEAPPDIR=/var/www/test.com/
+  # - REMOTEAPPDIR=/var/www/test.com/
   - REMOTEUSER=deploy
-  - REMOTEHOST=123.45.56.78 # your droplet IP goes here
-  - PORT=8080
-
+  - REMOTEHOST=104.248.3.160
+  # - PORT=8080
 before_install:
-  - docker build -t jandrey15/nginx .
-  - docker run --name my-nginx -d -p 8080:80 jandrey15/nginx
-  - docker ps -a
-
-script:
-  - bash _scripts/build.sh
-  - bash _scripts/test.sh
-
+- openssl aes-256-cbc -K $encrypted_b3f7817c4a82_key -iv $encrypted_b3f7817c4a82_iv
+  -in deploy.enc -out deploy -d
+- docker build -t jandrey15/nginx .
+- docker run --name my-nginx -d -p 8080:80 jandrey15/nginx
+- docker ps -a
+# script:
+# - bash _scripts/build.sh
+# - bash _scripts/test.sh
 deploy:
-  # deploy develop to the staging environment
-  - provider: script
-    script: bash scripts/deploy.sh staging
-    on:
-      branch: develop
-  # deploy master to production
-  - provider: script
-    script: bash scripts/deploy.sh production
-    on:
-      branch: master
+- provider: script
+  script: bash scripts/deploy.sh staging
+  on:
+    branch: develop
+- provider: script
+  script: bash scripts/deploy.sh production
+  on:
+    branch: master
