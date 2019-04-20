@@ -5,9 +5,9 @@ notifications:
 addons:
   sshknownhosts:
   - 104.248.3.160
-branches:
-  only:
-  - master
+# branches:
+#   only:
+#   - master
 env:
   global:
   # - REMOTEAPPDIR=/var/www/test.com/
