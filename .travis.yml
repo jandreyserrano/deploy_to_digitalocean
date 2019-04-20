@@ -16,7 +16,7 @@ env:
   # - PORT=8080
 before_install:
 - openssl aes-256-cbc -K $encrypted_b3f7817c4a82_key -iv $encrypted_b3f7817c4a82_iv
--in deploy.enc -out deploy -d
+  -in deploy.enc -out deploy -d
 - chmod 600 deploy_rsa
 - mv deploy_rsa ~/.ssh/id_rsa
 - docker build -t jandrey15/nginx .
