@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -x
 
-echo "Travis build  number - ${$TRAVIS_BUILD_NUMBER}"
+echo "Travis build  number - ${TRAVIS_BUILD_NUMBER}"
 
 cd test/
 
