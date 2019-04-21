@@ -7,8 +7,8 @@ addons:
   - 45.55.35.240
 env:
   global:
-    - REMOTEUSER=deploy
-    - REMOTEHOST=45.55.35.240
+    - REMOTE_USER=deploy
+    - REMOTE_HOST=45.55.35.240
     - secure: jj8NmauZigxxEo3IsVIvdFd2bSlWbWXNjyBfwRRnydcfmiIOxg53Nb8buFyf4dNc7FWHngUQgMWJqow3k1o0Q+OJe6AyPUvLX17s2KVnWyEAcBdL8GHsQrBH539UH9hek+yOuNccjlKUv907Ck/yUDWoIBKR4uOezx6qh6XkDfh8+ktgJhtKtnrj00CDFILe7iqczPWhc288h59y+oFEpmjmWj+wHoIezSBNu+yTm2yLYNuSjX5kxrrFcj6WGtu+3n98rqh93Ct8OSnBTItQcTrCbjn9fb+KeuJbEEgQXQOZ+5PlJXjKjyKj3Qpt7y/0xjWjRnfKJuVypgAvAeVebaa2TiwYoBBZmPWzU+uVR2wzO5z8ND8vkvfLS99eSU7gW8HlT3U5isKoH341ET0qIIC6Th/hqADuXOzuRliTid2iT247b9rced/fqdqKsXLAdN520WxXrduX8QbDmKFsyR2UfsNTYFTP6AXTVxs4eBeZhvSFnYELkBEtCrlJWWrNqSw9Ni/Fuobh6K/d85n0Bx2fK4dU5ne4mHyhgKLxBlfdZfVwPb1h6wzgZKgJf9ny9USthW88wMjNmEdkt0IsVKVauvXE1yrizsMT8ItP23ziWKPAgBzfGHKVMRRUvfUkXXFk6BM0VHRCDTDZ21Mt7x3+oVKpPrfXs+9qWGotrXw=
 before_install:
 - openssl aes-256-cbc -k "$super_secret_password" -in super_secret.txt.enc -out super_secret.txt -d
