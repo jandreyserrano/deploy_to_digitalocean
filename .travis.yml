@@ -18,8 +18,8 @@ before_install:
 - mv super_secret.txt ~/.ssh/id_rsa
 - docker build -t jandrey15/nginx:$TRAVIS_BUILD_NUMBER .
 - docker build -t jandrey15/nginx:latest .
-- docker run --name my-nginx -d -p 8080:80 jandrey15/nginx:$TRAVIS_BUILD_NUMBER
-- docker ps -a
+# - docker run --name my-nginx -d -p 8080:80 jandrey15/nginx:$TRAVIS_BUILD_NUMBER
+# - docker ps -a
 script:
 - echo "Hola mundo"
 deploy:
