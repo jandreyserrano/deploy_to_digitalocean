@@ -6,4 +6,4 @@ echo $REMOTE_USER
 # tar -czf package.tgz build && \
 # scp Dockerfile $REMOTE_USER@$REMOTE_HOST:$REMOTE_APP_DIR && \
 scp Dockerfile $REMOTE_USER@$REMOTE_HOST && \
-ssh $REMOTE_USER@$REMOTE_HOST -y 'bash -s' < ./scripts/untar.sh
+ssh -y $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/untar.sh
