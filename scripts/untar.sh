@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 set -x
 
+echo "Travis build  number - ${$TRAVIS_BUILD_NUMBER}"
+
 cd test/
-docker build -t jandrey15/nginx .
-docker run --name my-nginx -d -p 8080:80 jandrey15/nginx
+
+echo "-------------------"
+docker ps
+docker rmi $(docker images -q)
+docker pull jandrey15/nginx
+# docker build -t jandrey15/nginx:$TRAVIS_BUILD_NUMBER .
+# docker run --name my-nginx -d -p 8080:80 jandrey15/nginx
 docker ps -a
 
-# export NODE_ENV=production
-# export NVM_BIN=$HOME/.nvm/versions/node/v6.9.0/bin
-
-# cd /var/www/YOUR-DOMAIN.com && \
-# tar zxvf package.tgz -C . && \
-# mv build/package.json . && \
-# npm install && \
-# npm run start
+docker rm $(docker ps -a -q)
