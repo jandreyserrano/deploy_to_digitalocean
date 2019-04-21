@@ -11,7 +11,7 @@
 
 #!/bin/bash
 set -xe
-ll
+ls -a
 # chmod 600 .travis/deploy_key.pem # this key should have push access
 
 if [ $TRAVIS_BRANCH == 'master' ] ; then
