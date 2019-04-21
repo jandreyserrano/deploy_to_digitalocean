@@ -11,6 +11,8 @@
 
 #!/bin/bash
 set -xe
+ll
+# chmod 600 .travis/deploy_key.pem # this key should have push access
 
 if [ $TRAVIS_BRANCH == 'master' ] ; then
   eval "$(ssh-agent -s)"
