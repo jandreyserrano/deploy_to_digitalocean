@@ -15,16 +15,14 @@ set -xe
 if [ $TRAVIS_BRANCH == 'master' ] ; then
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
-
   echo "Connecting..."
-  echo $REMOTE_USER
-  ls
+
 else
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
-
   echo "Connecting..."
-  echo $REMOTE_USER
-  ls
+  scp Dockerfile $REMOTE_USER@$REMOTE_HOST && \
+  ssh -y $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/untar.sh
+  echo "................"
   echo "Not deploying, since this branch isn't master."
 fi
