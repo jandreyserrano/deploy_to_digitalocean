@@ -7,6 +7,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   docker push jandrey15/nginx:$TRAVIS_BUILD_NUMBER
+  docker push jandrey15/nginx:latest
   
   echo "----------------"
 
