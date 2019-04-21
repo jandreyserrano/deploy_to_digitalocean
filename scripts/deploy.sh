@@ -20,5 +20,11 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   echo $REMOTE_USER
   ls
 else
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+
+  echo "Connecting..."
+  echo $REMOTE_USER
+  ls
   echo "Not deploying, since this branch isn't master."
 fi
