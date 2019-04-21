@@ -21,7 +21,7 @@ else
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
   echo "Connecting..."
-  scp Dockerfile $REMOTE_USER@$REMOTE_HOST && \
+  yes | scp Dockerfile $REMOTE_USER@$REMOTE_HOST && \
   ssh -y $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/untar.sh
   echo "................"
   echo "Not deploying, since this branch isn't master."
