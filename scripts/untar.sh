@@ -16,5 +16,6 @@ docker stop my-nginx
 docker run --rm --name my-nginx -d -p 80:80 jandrey15/nginx:$TRAVIS_BUILD_NUMBER
 # docker build -t jandrey15/nginx:$TRAVIS_BUILD_NUMBER .
 # docker run --name my-nginx -d -p 8080:80 jandrey15/nginx
+docker image prune -a -f
 docker ps -a
 # docker rm $(docker ps -a -q)
