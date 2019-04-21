@@ -20,14 +20,14 @@ before_install:
 script:
 - echo "Hola mundo"
 
-after_success:
-  - bash ./scripts/deploy.sh
-# deploy:
-# - provider: script
-#   script: bash scripts/deploy.sh staging
-#   on:
-#     branch: stage
-# - provider: script
-#   script: bash scripts/deploy.sh production
-#   on:
-#     branch: master
+# after_success:
+#   - bash ./scripts/deploy.sh
+deploy:
+- provider: script
+  script: bash scripts/deploy.sh staging
+  on:
+    branch: stage
+- provider: script
+  script: bash scripts/deploy.sh production
+  on:
+    branch: master
