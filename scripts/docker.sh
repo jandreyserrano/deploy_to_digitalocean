@@ -4,7 +4,7 @@ set -x
 # echo "Travis build  number - ${TRAVIS_BUILD_NUMBER}"
 pwd && \
 source .env_travis && \
-cd test/ && \
+# cd test/ && \
 
 echo "-------------------" && \
 docker service ls
