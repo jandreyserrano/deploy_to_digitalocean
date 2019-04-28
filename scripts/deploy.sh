@@ -18,7 +18,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
   echo "Connecting..."
   scp -o StrictHostKeyChecking=no Dockerfile $REMOTE_USER@$REMOTE_HOST:~/test && \
   scp -o StrictHostKeyChecking=no .env_travis $REMOTE_USER@$REMOTE_HOST:~/ && \
-  ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/untar.sh
+  ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/docker.sh
   echo "Deployment..."
 
 else
